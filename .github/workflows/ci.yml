@@ -2,7 +2,7 @@ name: test ssh command
 on:
   push:
     branches:
-      - main
+      - dev
     paths:
       - '.github/workflows/**'
       - 'tests/**'
@@ -14,15 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v1.0.0
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/ubuntu/github/CICD-demo &&
+            cd /home/u0/github/CICD-demo &&
             git pull &&
             pnpm i &&
             npm run build &&
-            cp -r ./dist/*  /home/ubuntu/myDockerFiles/nginx/html/static/CICD-demo
+            cp -r ./dist/*  /opt/docker/nginx/1.23.1/html
