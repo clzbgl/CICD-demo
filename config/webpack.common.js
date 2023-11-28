@@ -12,7 +12,7 @@ function getCommonConfig(isProduction) {
   const plugins = [
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      title: 'CICD学习',
+      title: 'CICD演示',
       versionInfo: new Date().toLocaleString(),
     }),
     new DefinePlugin({
