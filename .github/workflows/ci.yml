@@ -22,6 +22,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /home/u0/github/CICD-demo &&
+            rm -rf dist &&
             git pull &&
             pnpm i &&
             npm run build &&
